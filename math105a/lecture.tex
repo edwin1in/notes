@@ -1,0 +1,109 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{color}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\title{Math 105a: Real Analysis}
+\author{Edwin Lin}
+\date{Lecture notes from Math 105a}
+
+\theoremstyle{theorem}
+\theoremstyle{definition}
+\theoremstyle{proposition}
+\theoremstyle{remark} 
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem*{remark}{Remark}
+
+\begin{document}
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+
+\section{Lecture 1}
+\subsection{Totally Ordered set}
+
+
+\begin{definition}[Totally Ordered Sets]
+A totally ordered set  is a set $S$ together with a relation $<$ such that
+\begin{enumerate}[I.]
+    \item (Trichotomy) For all $x,y \in S$, exactly one of the following holds 
+    \begin{enumerate}[(i)]
+        \item $x < y$
+        \item $x = y$ 
+        \item $x > y$
+    \end{enumerate}
+    \item (Transitivity) if $x,y,z \in S$ and if $x < y$ and $y < z$, then $x < z$.
+\end{enumerate}
+We write $x \leq y$ if $x < y$ or $x = y$.
+
+\end{definition}
+\begin{remark}
+    We denote totally ordered set as ordered set.
+\end{remark}
+
+\begin{definition}[Bounds]
+Let $E \subset S$, where $S$ is an ordered set.
+\begin{enumerate}[(i)]
+    \item If there exists some $b \in S$ such that $x \leq b$ for all $x \in E$, then $b$ is an \textbf{upper bound} for the set $E$. We say $E$ is \textbf{bounded above}.
+    \item If there exists some $b \in S$ such that $b \leq x$ for all $x \in E$, then $b$ is a \textbf{lower bound} for the set $E$. We say $E$ is \textbf{bounded below}.
+    \item If there exists an upper bound for $E$, call it $b_{0}$ such that $b_{0} \leq b$ for all other upper bounds $b$ for $E$, then $b_{0}$ is the \textbf{least upper bound} for $E$, or the \textbf{supremum}.
+    \item If there exists $b_{0} \in S$ such that $b \leq b_{0}$ for all $b \in E$, then $b_{0}$ is the \textbf{greatest lower bound} \textbf{infimum} for $E$.
+    \item If $E$ has an upper bound and lower bound then it is \textbf{bounded}.
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}
+    Let E be a subset of the ordered set $E$. If $\inf E$ and $\sup E$ exists, then they are unique.
+\end{proposition}
+
+\begin{proof}
+    $ $\newline
+    Suppose $b_0$ is an infimum for $E$ and $b_0^\prime$ is an infimum for $E$. We want to show $b_0 = b_0^\prime$. \\ \\
+    Since $b_0$ is an infimum for $E$, then by definition 1.2 $b_0 \geq b$ for all other lower bounds $b$ for $E$. $b_0^\prime$ is also an infimum for $E$, meaning $b_0^\prime$ is a lower bound for $E$. Thus $b_0 \geq b_0^\prime$. Similarly, $b_0^\prime$ is greater than all other lower bounds, so $b_0^\prime \geq b_0$. Thus $b_0 = b_0^\prime$ and thus is unique.
+\end{proof}
+
+\begin{definition}[Least Upper Bound Property]
+   An ordered set $S$  has the \emph{least upper bound property} if every non-empty subset $E \subset S$ that is bounded above has a least upper bound.
+\end{definition}
+
+\begin{remark}
+    Check out completeness property
+\end{remark}
+
+\begin{definition}[Fields]
+   A set $F$  is a field if it has two operations defined on it, $+$ and $\cdot$, and it satisfies the following axioms.
+   \begin{enumerate}[(i)]
+       \item If $x \in F$ and $y \in F$, then $x + y \in F$
+       \item $x + y = y + x$ for all $x,y \in F$
+       \item $(x + y) + z = x + (y + z)$ for all $x,y,z \in F$
+       \item There exists an additive identity element, $0$, such that $x + 0 = x$ for all $x \in F$
+       \item There exists an additive inverse, we denote $-x \in F$, such that $x + (-x) = 0$ for all $x \in F$
+       \item If $x,y \in F$, then $xy \in F$
+       \item $xy = yx $ for all $x,y \in F$
+       \item $(xy)z = x(yz)$ for all $x,y,z \in F$
+       \item There exists an multiplicative identity element, $1$, such that $x \cdot 1 = x$ for all $x \in F$
+       \item For all non-zero $x\in F$, there exists a multiplicative inverse $x^{-1} \in F$ such that $x\cdot x^{-1} = 1$
+       \item $1 \neq 0$
+   \end{enumerate}
+\end{definition}
+\begin{theorem}
+   There exists a unique ordered field containing $\mathbb{Q}$  that satisfies the least upper bound property. We call this field $\mathbb{R}$.
+\end{theorem}
+\begin{proposition}
+    If $x \in \mathbb{R}$ such that $x \leq \epsilon$ for all $\epsilon \in \mathbb{R}$ where $\epsilon > 0$, then $x \leq 0$.
+\end{proposition}
+\end{document}
